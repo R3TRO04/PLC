@@ -1,3 +1,15 @@
-public class Truck {
+public class Truck extends Vehicle {
+
+    public static final double MAXIMUM_DISCOUNT_VALUE = 20.00;
+
+    public Truck(String brand, String model, int buildYear, double price, int uniqueVehicleIdentificationNumber) {
+        super(brand, model, buildYear, price, uniqueVehicleIdentificationNumber);
+    }
+
+    @Override
+    public double getDiscount() {
+        double calculatedDiscount = this.getAge() * 0.05;
+        return Math.min(calculatedDiscount, MAXIMUM_DISCOUNT_VALUE);
+    }
 
 }
