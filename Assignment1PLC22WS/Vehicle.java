@@ -2,11 +2,11 @@ import java.util.Calendar;
 
 public abstract class Vehicle {
 
-    private String brand;
-    private String model;
-    private int buildYear;
-    private double price;
-    private int uniqueVehicleIdentificationNumber;
+    private final String brand;
+    private final String model;
+    private final int buildYear;
+    private final double price;
+    private final int uniqueVehicleIdentificationNumber;
 
     public Vehicle(String brand, String model, int buildYear, double price, int uniqueVehicleIdentificationNumber) {
         this.brand = brand;
@@ -35,6 +35,10 @@ public abstract class Vehicle {
             throw new IllegalArgumentException("Unique vehicle identification number cannot be negative");
         }
 
+    }
+
+    public int getUniqueVehicleIdentificationNumber(){
+        return uniqueVehicleIdentificationNumber;
     }
 
     public int getAge(){
