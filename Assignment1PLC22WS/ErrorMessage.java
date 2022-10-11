@@ -1,8 +1,8 @@
 public enum ErrorMessage {
     parameterError("Error: Invalid parameter."),
-    buildInvalid("Error: Year built invalid."),
+    yearInvalid("Error: Year built invalid."),
     priceInvalid("Error: Base price invalid."),
-    yearInvalid("Error: Inspection year invalid."),
+    inspectionInvalid("Error: Inspection year invalid."),
     vehicleNotFound("Error: Vehicle not found. "),
     vehicleAlreadyExists("Error: Vehicle already exists. ");
 

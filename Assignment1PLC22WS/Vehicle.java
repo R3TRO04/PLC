@@ -16,23 +16,23 @@ public abstract class Vehicle {
         this.uniqueVehicleIdentificationNumber = uniqueVehicleIdentificationNumber;
 
         if(this.brand == null || this.brand.isEmpty()) {
-            throw new IllegalArgumentException("Brand cannot be null or empty");
+            throw new IllegalArgumentException(ErrorMessage.parameterError.getMessage());
         }
 
         if(this.model == null || this.model.isEmpty()) {
-            throw new IllegalArgumentException("Model cannot be null or empty");
+            throw new IllegalArgumentException(ErrorMessage.parameterError.getMessage());
         }
 
         if(this.buildYear > Calendar.getInstance().get(Calendar.YEAR)) {
-            throw new IllegalArgumentException("Build year cannot be in the future");
+            throw new IllegalArgumentException(ErrorMessage.yearInvalid.getMessage());
         }
 
         if(this.price < 0) {
-            throw new IllegalArgumentException("Price cannot be negative");
+            throw new IllegalArgumentException(ErrorMessage.priceInvalid.getMessage());
         }
 
         if(this.uniqueVehicleIdentificationNumber < 0) {
-            throw new IllegalArgumentException("Unique vehicle identification number cannot be negative");
+            throw new IllegalArgumentException(ErrorMessage.parameterError.getMessage());
         }
 
     }
@@ -47,6 +47,18 @@ public abstract class Vehicle {
 
     public double getPrice(){
         return this.price-getDiscount();
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getBuildYear() {
+        return buildYear;
     }
 
     public abstract double getDiscount();

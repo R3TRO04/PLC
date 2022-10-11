@@ -1,6 +1,8 @@
 public class VehicleManagement{
-
-    public VehicleManagement(){}
+    private SerializedVehicleDAO serializedVehicleDAO;
+    public VehicleManagement(SerializedVehicleDAO serializedVehicleDAO){
+        this.serializedVehicleDAO = serializedVehicleDAO;
+    }
 
     public Vehicle getVehicle(){
 

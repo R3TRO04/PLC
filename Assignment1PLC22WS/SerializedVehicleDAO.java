@@ -43,6 +43,5 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
                     .filter(vehicle -> vehicle.getUniqueVehicleIdentificationNumber() == id)
                     .findAny()
                     .orElseThrow(() -> new IllegalArgumentException("Vehicle with this ID does not exist")));
-        }
     }
 }
