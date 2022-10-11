@@ -40,7 +40,7 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
     @Override
     public void deleteVehicle(int id) {
         vehicleList.remove(vehicleList.stream()
-                    .filter(v -> v.getUniqueVehicleIdentificationNumber() == id)
+                    .filter(vehicle -> vehicle.getUniqueVehicleIdentificationNumber() == id)
                     .findAny()
                     .orElseThrow(() -> new IllegalArgumentException("Vehicle with this ID does not exist")));
         }
