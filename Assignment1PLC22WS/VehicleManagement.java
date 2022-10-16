@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleManagement{
@@ -52,9 +53,12 @@ public class VehicleManagement{
                 .get()
                 .getBuildYear();
 
-        return (List<Integer>) vehicleDAO.getVehicleList().stream()
+        List<Integer> idsOfOldestVehicles = new ArrayList<>();
+        vehicleDAO.getVehicleList().stream()
                 .filter(vehicle -> vehicle.getBuildYear() == oldestYear)
-                .mapToInt(Vehicle::getUniqueVehicleIdentificationNumber);
+                .forEach(vehicle -> idsOfOldestVehicles.add(vehicle.getUniqueVehicleIdentificationNumber()));
+
+        return idsOfOldestVehicles;
     }
 
 }

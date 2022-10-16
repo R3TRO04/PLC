@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements Serializable {
 
     private final String brand;
     private final String model;
@@ -18,23 +19,23 @@ public abstract class Vehicle {
         this.uniqueVehicleIdentificationNumber = uniqueVehicleIdentificationNumber;
 
         if(this.brand == null || this.brand.isEmpty()) {
-            throw new IllegalArgumentException("Error: Invalid parameter.");
+            throw new IllegalArgumentException("Invalid parameter.");
         }
 
         if(this.model == null || this.model.isEmpty()) {
-            throw new IllegalArgumentException("Error: Invalid parameter.");
+            throw new IllegalArgumentException("Invalid parameter.");
         }
 
         if(this.buildYear > Calendar.getInstance().get(Calendar.YEAR)) {
-            throw new IllegalArgumentException("Error: Year built invalid.");
+            throw new IllegalArgumentException("Year built invalid.");
         }
 
         if(this.price < 0) {
-            throw new IllegalArgumentException("Error: Base price invalid.");
+            throw new IllegalArgumentException("Base price invalid.");
         }
 
         if(this.uniqueVehicleIdentificationNumber < 0) {
-            throw new IllegalArgumentException("Error: Invalid parameter.");
+            throw new IllegalArgumentException("Invalid parameter.");
         }
 
     }
@@ -66,7 +67,7 @@ public abstract class Vehicle {
     public abstract double getDiscount();
 
     public int compareToAge(Vehicle vehicle) {
-        return this.getAge() - vehicle.getAge();
+        return this.getBuildYear() - vehicle.getBuildYear();
     }
 
     public DecimalFormat getDecimalFormat() {

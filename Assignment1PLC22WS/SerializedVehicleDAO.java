@@ -1,3 +1,8 @@
+/**
+ * @author Nico Beranek
+ * @id 11807137
+ */
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +36,8 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(vehicleList);
+            objectOutputStream.flush();
+            objectOutputStream.close();
         } catch (Exception e) {
             System.err.println("Error during serialization: " + e.getMessage());
             System.exit(1);
@@ -47,7 +54,7 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
         return vehicleList.stream()
                 .filter(vehicle -> vehicle.getUniqueVehicleIdentificationNumber() == id)
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Error: Vehicle not found. " + "(" + id + ")"));
+                .orElseThrow(() -> new IllegalArgumentException("Vehicle not found. " + "(id=" + id + ")"));
     }
 
     @Override
@@ -55,7 +62,7 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
         if(vehicleList.stream()
                 .anyMatch(v -> v.getUniqueVehicleIdentificationNumber() == vehicle.getUniqueVehicleIdentificationNumber())) {
             throw new IllegalArgumentException(
-                    "Error: Vehicle already exists. " + "(" + vehicle.getUniqueVehicleIdentificationNumber() + ")"
+                    "Vehicle already exists. " + "(id=" + vehicle.getUniqueVehicleIdentificationNumber() + ")"
             );
         }else {
             vehicleList.add(vehicle);
@@ -68,7 +75,7 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
         if(vehicleList.stream()
                 .noneMatch(v -> v.getUniqueVehicleIdentificationNumber() == id)) {
             throw new IllegalArgumentException(
-                    "Error: Vehicle not found. " + "(" + id + ")"
+                    "Vehicle not found. " + "(id=" + id + ")"
             );
         }else {
             vehicleList.removeIf(v -> v.getUniqueVehicleIdentificationNumber() == id);
