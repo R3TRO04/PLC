@@ -46,7 +46,7 @@ public abstract class Vehicle {
     }
 
     public double getPrice(){
-        return this.price-getDiscount();
+        return this.price;
     }
 
     public String getBrand() {
@@ -63,5 +63,7 @@ public abstract class Vehicle {
 
     public abstract double getDiscount();
 
-
+    public int compareToAge(Vehicle vehicle) {
+        return this.getAge() - vehicle.getAge();
+    }
 }

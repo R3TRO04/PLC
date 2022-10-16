@@ -4,9 +4,11 @@ public enum ErrorMessage {
     priceInvalid("Error: Base price invalid."),
     inspectionInvalid("Error: Inspection year invalid."),
     vehicleNotFound("Error: Vehicle not found. "),
-    vehicleAlreadyExists("Error: Vehicle already exists. ");
+    vehicleAlreadyExists("Error: Vehicle already exists. "),
+    serializationError("Error during serialization: "),
+    deserializationError("Error during deserialization: ");
 
-    private String message;
+    private final String message;
     ErrorMessage(String message) {
         this.message = message;
     }

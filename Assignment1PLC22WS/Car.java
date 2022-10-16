@@ -14,4 +14,7 @@ public class Car extends Vehicle {
         return Math.min(calculatedDiscount, MAXIMUM_DISCOUNT_VALUE);
     }
 
+    public int getLastInspectionYear() {
+        return lastInspectionYear;
+    }
 }

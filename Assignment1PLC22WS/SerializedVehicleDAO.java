@@ -1,17 +1,38 @@
-import java.io.File;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class SerializedVehicleDAO implements VehicleDAO, Serializable {
-    private Collection<Vehicle> vehicleList;
-    File file;
+    private static List<Vehicle> vehicleList = new ArrayList<>();
+    private static File file;
 
-    public SerializedVehicleDAO(String fileName) {
-        this.file = new File(fileName);
-        this.vehicleList = new ArrayList<>();
+    public SerializedVehicleDAO(String fileName){
+        file = new File(fileName);
+        vehicleList = readVehicleFromFile(file);
 
+    }
+
+    static List<Vehicle> readVehicleFromFile (File file) {
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ObjectInputStream objectOutputStream = new ObjectInputStream(fileInputStream);
+            return (List<Vehicle>) objectOutputStream.readObject();
+        } catch (Exception e) {
+            System.err.println(ErrorMessage.deserializationError.getMessage() + e.getMessage());
+            System.exit(1);
+        }
+        return null;
+    }
+
+    static void writeVehicleToFile() {
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(vehicleList);
+        } catch (Exception e) {
+            System.err.println(ErrorMessage.serializationError.getMessage() + e.getMessage());
+            System.exit(1);
+        }
     }
 
     @Override
@@ -31,17 +52,25 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
     public void saveVehicle(Vehicle vehicle) {
         if(vehicleList.stream()
                 .anyMatch(v -> v.getUniqueVehicleIdentificationNumber() == vehicle.getUniqueVehicleIdentificationNumber())) {
-            throw new IllegalArgumentException("Vehicle with this ID already exists");
+            throw new IllegalArgumentException(
+                    ErrorMessage.vehicleAlreadyExists.getMessage() + "(" + vehicle.getUniqueVehicleIdentificationNumber() + ")"
+            );
         }else {
             vehicleList.add(vehicle);
+            writeVehicleToFile();
         }
     }
 
     @Override
     public void deleteVehicle(int id) {
-        vehicleList.remove(vehicleList.stream()
-                    .filter(vehicle -> vehicle.getUniqueVehicleIdentificationNumber() == id)
-                    .findAny()
-                    .orElseThrow(() -> new IllegalArgumentException("Vehicle with this ID does not exist")));
+        if(vehicleList.stream()
+                .noneMatch(v -> v.getUniqueVehicleIdentificationNumber() == id)) {
+            throw new IllegalArgumentException(
+                    ErrorMessage.vehicleNotFound.getMessage() + "(" + id + ")"
+            );
+        }else {
+            vehicleList.removeIf(v -> v.getUniqueVehicleIdentificationNumber() == id);
+            writeVehicleToFile();
+        }
     }
 }
