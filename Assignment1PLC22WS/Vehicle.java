@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Calendar;
 
 public abstract class Vehicle {
@@ -7,6 +8,7 @@ public abstract class Vehicle {
     private final int buildYear;
     private final double price;
     private final int uniqueVehicleIdentificationNumber;
+    private final DecimalFormat df = new DecimalFormat("0.00");
 
     public Vehicle(String brand, String model, int buildYear, double price, int uniqueVehicleIdentificationNumber) {
         this.brand = brand;
@@ -16,23 +18,23 @@ public abstract class Vehicle {
         this.uniqueVehicleIdentificationNumber = uniqueVehicleIdentificationNumber;
 
         if(this.brand == null || this.brand.isEmpty()) {
-            throw new IllegalArgumentException(ErrorMessage.parameterError.getMessage());
+            throw new IllegalArgumentException("Error: Invalid parameter.");
         }
 
         if(this.model == null || this.model.isEmpty()) {
-            throw new IllegalArgumentException(ErrorMessage.parameterError.getMessage());
+            throw new IllegalArgumentException("Error: Invalid parameter.");
         }
 
         if(this.buildYear > Calendar.getInstance().get(Calendar.YEAR)) {
-            throw new IllegalArgumentException(ErrorMessage.yearInvalid.getMessage());
+            throw new IllegalArgumentException("Error: Year built invalid.");
         }
 
         if(this.price < 0) {
-            throw new IllegalArgumentException(ErrorMessage.priceInvalid.getMessage());
+            throw new IllegalArgumentException("Error: Base price invalid.");
         }
 
         if(this.uniqueVehicleIdentificationNumber < 0) {
-            throw new IllegalArgumentException(ErrorMessage.parameterError.getMessage());
+            throw new IllegalArgumentException("Error: Invalid parameter.");
         }
 
     }
@@ -65,5 +67,9 @@ public abstract class Vehicle {
 
     public int compareToAge(Vehicle vehicle) {
         return this.getAge() - vehicle.getAge();
+    }
+
+    public DecimalFormat getDecimalFormat() {
+        return df;
     }
 }

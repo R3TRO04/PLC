@@ -14,14 +14,16 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
 
     static List<Vehicle> readVehicleFromFile (File file) {
         try {
-            FileInputStream fileInputStream = new FileInputStream(file);
-            ObjectInputStream objectOutputStream = new ObjectInputStream(fileInputStream);
-            return (List<Vehicle>) objectOutputStream.readObject();
+            if(file.exists()) {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                ObjectInputStream objectOutputStream = new ObjectInputStream(fileInputStream);
+                return (List<Vehicle>) objectOutputStream.readObject();
+            }
         } catch (Exception e) {
-            System.err.println(ErrorMessage.deserializationError.getMessage() + e.getMessage());
+            System.err.println("Error during deserialization: " + e.getMessage());
             System.exit(1);
         }
-        return null;
+        return new ArrayList<>();
     }
 
     static void writeVehicleToFile() {
@@ -30,14 +32,14 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(vehicleList);
         } catch (Exception e) {
-            System.err.println(ErrorMessage.serializationError.getMessage() + e.getMessage());
+            System.err.println("Error during serialization: " + e.getMessage());
             System.exit(1);
         }
     }
 
     @Override
     public List<Vehicle> getVehicleList() {
-        return new ArrayList<>(vehicleList);
+        return vehicleList;
     }
 
     @Override
@@ -45,7 +47,7 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
         return vehicleList.stream()
                 .filter(vehicle -> vehicle.getUniqueVehicleIdentificationNumber() == id)
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(() -> new IllegalArgumentException("Error: Vehicle not found. " + "(" + id + ")"));
     }
 
     @Override
@@ -53,7 +55,7 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
         if(vehicleList.stream()
                 .anyMatch(v -> v.getUniqueVehicleIdentificationNumber() == vehicle.getUniqueVehicleIdentificationNumber())) {
             throw new IllegalArgumentException(
-                    ErrorMessage.vehicleAlreadyExists.getMessage() + "(" + vehicle.getUniqueVehicleIdentificationNumber() + ")"
+                    "Error: Vehicle already exists. " + "(" + vehicle.getUniqueVehicleIdentificationNumber() + ")"
             );
         }else {
             vehicleList.add(vehicle);
@@ -66,7 +68,7 @@ public class SerializedVehicleDAO implements VehicleDAO, Serializable {
         if(vehicleList.stream()
                 .noneMatch(v -> v.getUniqueVehicleIdentificationNumber() == id)) {
             throw new IllegalArgumentException(
-                    ErrorMessage.vehicleNotFound.getMessage() + "(" + id + ")"
+                    "Error: Vehicle not found. " + "(" + id + ")"
             );
         }else {
             vehicleList.removeIf(v -> v.getUniqueVehicleIdentificationNumber() == id);

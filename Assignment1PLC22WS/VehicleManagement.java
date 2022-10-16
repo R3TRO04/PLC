@@ -46,11 +46,15 @@ public class VehicleManagement{
                 .orElse(0);
     }
 
-    public int getOldestVehicleId(){
-        return vehicleDAO.getVehicleList().stream()
+    public List<Integer> getOldestVehiclesIds(){
+        int oldestYear =  vehicleDAO.getVehicleList().stream()
                 .min(Vehicle::compareToAge)
-                .map(Vehicle::getUniqueVehicleIdentificationNumber)
-                .orElse(0);
+                .get()
+                .getBuildYear();
+
+        return (List<Integer>) vehicleDAO.getVehicleList().stream()
+                .filter(vehicle -> vehicle.getBuildYear() == oldestYear)
+                .mapToInt(Vehicle::getUniqueVehicleIdentificationNumber);
     }
 
 }
