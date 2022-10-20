@@ -1,7 +1,7 @@
-public class TrafficControllerEmpty implements TrafficController {
+public class TrafficControllerFair implements TrafficController {
 	private TrafficRegistrar registrar;
-	
-	public TrafficControllerEmpty(TrafficRegistrar r) {
+
+	public TrafficControllerFair(TrafficRegistrar r) {
 		this.registrar = r;
 	}
 	
