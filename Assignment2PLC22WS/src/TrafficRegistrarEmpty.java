@@ -11,5 +11,5 @@ public class TrafficRegistrarEmpty implements TrafficRegistrar {
 	
 	public void deregisterRight(Vehicle v) {
 	}
-    
+
 }
