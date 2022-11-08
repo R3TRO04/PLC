@@ -1,8 +1,10 @@
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleManagement{
     private final VehicleDAO vehicleDAO;
+    private final DecimalFormat df = new DecimalFormat("0.00");
 
     public VehicleManagement(VehicleDAO vehicleDAO){
         this.vehicleDAO = vehicleDAO;
@@ -14,6 +16,10 @@ public class VehicleManagement{
 
     public Vehicle getVehicle(int id){
         return vehicleDAO.getVehicle(id);
+    }
+
+    public boolean isVehicleInList(int id){
+        return vehicleDAO.getVehicleList().stream().anyMatch(vehicle -> vehicle.getUniqueVehicleIdentificationNumber() == id);
     }
 
     public void saveVehicle(Vehicle vehicle){
@@ -41,10 +47,11 @@ public class VehicleManagement{
     }
 
     public double getMeanPriceOfAllVehicles(){
-        return vehicleDAO.getVehicleList().stream()
-                .mapToDouble(Vehicle::getPrice)
-                .average()
-                .orElse(0);
+        return Double.parseDouble(
+                df.format(vehicleDAO.getVehicleList().stream()
+                .mapToDouble(Vehicle::getReducedPrice)
+                .sum() / getVehicleCount()));
+
     }
 
     public List<Integer> getOldestVehiclesIds(){

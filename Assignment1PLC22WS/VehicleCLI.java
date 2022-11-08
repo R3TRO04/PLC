@@ -20,7 +20,9 @@ public class VehicleCLI {
 					if (argsCounter <= 2) {
 						vehicleCLI.printShow();
 					} else {
-						vehicleCLI.printVehicle(args[2]);
+						if(vehicleCLI.vehicleManagement.isVehicleInList(Integer.parseInt(args[2]))) {
+							vehicleCLI.printVehicle(args[2]);
+						}
 					}
 					return;
 				}
@@ -137,7 +139,7 @@ public class VehicleCLI {
 			System.out.println("Inspection: " + ((Car) vehicleToPrint).getLastInspectionYear());
 		}
 		System.out.println("Base price: " + vehicleToPrint.getDecimalFormat().format(vehicleToPrint.getPrice()));
-		System.out.println("Price:      " + vehicleToPrint.getDecimalFormat().format((vehicleToPrint.getPrice() * (1 - vehicleToPrint.getDiscount()))));
+		System.out.println("Price:      " + vehicleToPrint.getDecimalFormat().format((vehicleToPrint.getReducedPrice())));
 		System.out.println();
 	}
 

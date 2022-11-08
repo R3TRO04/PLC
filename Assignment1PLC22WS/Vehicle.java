@@ -52,6 +52,10 @@ public abstract class Vehicle implements Serializable {
         return this.price;
     }
 
+    public double getReducedPrice(){
+        return this.price * (1 - getDiscount());
+    }
+
     public String getBrand() {
         return brand;
     }
