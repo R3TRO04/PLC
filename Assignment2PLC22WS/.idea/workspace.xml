@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a024f70f-61cb-478a-b98f-b3b4c7342f8d" name="Changes" comment="Abgabe 2">
+      <change afterPath="$PROJECT_DIR$/src/TrafficControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment2PLC22WS/CarWorld$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment2PLC22WS/CarWorld$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment2PLC22WS/CarWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment2PLC22WS/CarWorld.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment2PLC22WS/TrafficControllerEmpty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CarWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TrafficControllerFair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrafficControllerFair.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="ComposerSettings">
     <execution />
@@ -37,6 +41,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
   <component name="ProjectId" id="2GMvfFk2cZhvmCj4kBSIKFvIJVj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -45,25 +52,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Niederkofler Nico/Documents/GitHub/PLC/Assignment2PLC22WS/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "openjdk-17",
+    "last_opened_file_path": "C:/Users/Niederkofler Nico/Documents/GitHub/PLC/Assignment3PLC22WS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="src" />
@@ -201,6 +208,11 @@
       <workItem from="1666981770410" duration="1422000" />
       <workItem from="1667032251982" duration="5147000" />
       <workItem from="1667055023508" duration="20000" />
+      <workItem from="1667940842026" duration="1963000" />
+      <workItem from="1667944939379" duration="1670000" />
+      <workItem from="1667946638561" duration="158000" />
+      <workItem from="1668630275023" duration="291000" />
+      <workItem from="1668630579785" duration="313000" />
     </task>
     <task id="LOCAL-00001" summary="update Abgabe 2">
       <created>1666211622873</created>
@@ -251,5 +263,9 @@
     <MESSAGE value="update Abgabe 2" />
     <MESSAGE value="Abgabe 2" />
     <option name="LAST_COMMIT_MESSAGE" value="Abgabe 2" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

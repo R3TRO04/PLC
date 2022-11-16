@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.locks.ReentrantLock;
 
+
 public class TrafficControllerFair implements TrafficController {
 	private TrafficRegistrar registrar;
 	private final Collection<Vehicle> bridge = new ArrayList<>();

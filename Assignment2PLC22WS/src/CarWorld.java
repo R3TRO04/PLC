@@ -15,7 +15,7 @@ class CarWorld extends JPanel {
 
     public CarWorld() {
         //controller = new TrafficControllerSimple(new TrafficRegistrarEmpty());
-       	controller = new TrafficControllerFair(new TrafficRegistrarEmpty());
+       	controller = new TrafficControllerTest(new TrafficRegistrarEmpty());
         	
         MediaTracker mt = new MediaTracker(this);
 	    Toolkit toolkit = Toolkit.getDefaultToolkit();
