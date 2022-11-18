@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Assignment3PLC22WS.iml" filepath="$PROJECT_DIR$/Assignment3PLC22WS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Assignment3PLC22WSTest.iml" filepath="$PROJECT_DIR$/.idea/modules/Assignment3PLC22WSTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Assignment3PLC22WSTest-build.iml" filepath="$PROJECT_DIR$/.idea/modules/Assignment3PLC22WSTest-build.iml" />
     </modules>
   </component>
 </project>
