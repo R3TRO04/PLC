@@ -1,5 +1,4 @@
 class Database extends ShoppingCart {
-  
   private var storedItems: Array[StoreItem] = Array.empty
 
   override def delete(id: Int): Array[StoreItem] = {
@@ -16,23 +15,23 @@ class Database extends ShoppingCart {
   }
 
   override def sortByValueAsc(): Array[StoreItem] = {
-    storedItems.sortWith((storeItemA, storeItemB) => (storeItemA.value < storeItemB.value))
+    storedItems.sortWith((storeItemA, storeItemB) => storeItemA.value < storeItemB.value)
   }
 
   override def sortByValueDesc(): Array[StoreItem] = {
-    storedItems.sortWith((storeItemA, storeItemB) => (storeItemA.value > storeItemB.value))
+    storedItems.sortWith((storeItemA, storeItemB) => storeItemA.value > storeItemB.value)
   }
 
   override def store(item: StoreItem): Array[StoreItem] = {
     item.logAction("stored", item.name)
-    storedItems:+ item
+    storedItems :+ item
   }
 
   override def sumUp(): Int = {
-    storedItems.foldLeft(0)(_+_.value)
-}
+    storedItems.foldLeft(0)(_ + _.value)
+  }
 
-  def filterByName(name: String, itemArray: Array[StoreItem]):Array[StoreItem] ={
+  def filterByName(name: String, itemArray: Array[StoreItem]): Array[StoreItem] = {
     itemArray.filter(_.name == name).sortBy(_.value)
   }
 }
