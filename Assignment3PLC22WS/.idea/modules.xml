@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Assignment3PLC22WSTest.iml" filepath="$PROJECT_DIR$/.idea/modules/Assignment3PLC22WSTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Assignment3PLC22WSTest-build.iml" filepath="$PROJECT_DIR$/.idea/modules/Assignment3PLC22WSTest-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/project.Assignment3PLC22WSTest-build.iml" filepath="$PROJECT_DIR$/.idea/modules/project.Assignment3PLC22WSTest-build.iml" />
     </modules>
   </component>
 </project>
