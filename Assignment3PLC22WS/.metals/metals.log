@@ -728,3 +728,26 @@ INFORMATION: Unsupported notification method: $/setTrace
 2022.12.20 22:17:03 INFO  shutting down Metals
 2022.12.20 22:17:04 INFO  Shut down connection with build server.
 2022.12.20 22:17:04 INFO  Shut down connection with build server.
+2022.12.20 22:50:38 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at c:\Users\yt000\PLC\Assignment3PLC22WS\.metals\lsp.trace.json or C:\Users\yt000\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.12.20 22:50:39 INFO  logging to file C:\Users\yt000\PLC\Assignment3PLC22WS\.metals\metals.log
+2022.12.20 22:50:39 INFO  Started: Metals version 0.11.9 in workspace 'C:\Users\yt000\PLC\Assignment3PLC22WS' for client Visual Studio Code 1.74.2.
+2022.12.20 22:50:40 INFO  time: initialize in 1.42s
+2022.12.20 22:50:43 INFO  Attempting to connect to the build server...
+2022.12.20 22:50:43 INFO  Bloop uses C:\Program Files\Java\jdk-17.0.3.1 defined at C:\Users\yt000\.bloop\bloop.json
+2022.12.20 22:50:43 INFO  skipping build import with status 'Started'
+2022.12.20 22:50:43 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\yt000\PLC\Assignment3PLC22WS\.metals\bsp.trace.json or C:\Users\yt000\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2022.12.20 22:50:43 INFO  Attempting to connect to the build server...
+2022.12.20 22:50:43 INFO  Bloop uses C:\Program Files\Java\jdk-17.0.3.1 defined at C:\Users\yt000\.bloop\bloop.json
+2022.12.20 22:50:43 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\yt000\PLC\Assignment3PLC22WS\project\.metals\bsp.trace.json or C:\Users\yt000\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2022.12.20 22:50:43 INFO  time: Connected to build server in 0.33s
+2022.12.20 22:50:43 INFO  Connected to Build server: Bloop v1.5.4
+2022.12.20 22:50:47 INFO  no build target found for C:\Users\yt000\PLC\Assignment3PLC22WS\src\main\scala\Logger.scala. Using presentation compiler with project's scala-library version: 3.2.0
+2022.12.20 22:50:47 INFO  time: code lens generation in 4.98s
+2022.12.20 22:50:49 INFO  no build target found for C:\Users\yt000\PLC\Assignment3PLC22WS\src\main\scala\Logger.scala. Using presentation compiler with project's scala-library version: 3.2.0
+2022.12.20 22:50:55 INFO  time: code lens generation in 11s
+2022.12.20 22:51:00 INFO  time: indexed workspace in 12s
+2022.12.20 22:51:00 INFO  compiling root (6 scala sources)
+2022.12.20 22:51:03 INFO  time: compiled root in 3.14s
+2022.12.20 22:51:39 INFO  shutting down Metals
+2022.12.20 22:51:39 INFO  Shut down connection with build server.
+2022.12.20 22:51:39 INFO  Shut down connection with build server.
