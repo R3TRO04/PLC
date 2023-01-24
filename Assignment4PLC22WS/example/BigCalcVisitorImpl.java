@@ -1,15 +1,17 @@
+package example;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class BigCalcVisitorImpl extends BigCalcBaseVisitor<BigDecimal> {
+public class BigCalcVisitorImpl extends example.BigCalcBaseVisitor<BigDecimal> {
 
     @Override
-    public BigDecimal visitExpressionStatement(BigCalcParser.ExpressionStatementContext ctx) {
+    public BigDecimal visitExpressionStatement(example.BigCalcParser.ExpressionStatementContext ctx) {
 	return visit(ctx.expression());
     }
 
     @Override
-    public BigDecimal visitMulDiv(BigCalcParser.MulDivContext ctx) {
+    public BigDecimal visitMulDiv(example.BigCalcParser.MulDivContext ctx) {
         final BigDecimal left = visit(ctx.expression(0));
         final BigDecimal right = visit(ctx.expression(1));
         if (ctx.op.getText().equals("*")) {
@@ -20,7 +22,7 @@ public class BigCalcVisitorImpl extends BigCalcBaseVisitor<BigDecimal> {
     }
 
     @Override
-    public BigDecimal visitAddSub(BigCalcParser.AddSubContext ctx) {
+    public BigDecimal visitAddSub(example.BigCalcParser.AddSubContext ctx) {
         final BigDecimal left = visit(ctx.expression(0));
         final BigDecimal right = visit(ctx.expression(1));
         if (ctx.op.getText().equals("+")) {
@@ -31,7 +33,7 @@ public class BigCalcVisitorImpl extends BigCalcBaseVisitor<BigDecimal> {
     }
 
     @Override
-    public BigDecimal visitNum(BigCalcParser.NumContext ctx) {
+    public BigDecimal visitNum(example.BigCalcParser.NumContext ctx) {
         return new BigDecimal(ctx.Number().getText());
     }
 
